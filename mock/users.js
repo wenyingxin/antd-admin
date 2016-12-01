@@ -14,6 +14,7 @@ module.exports = {
       'data|100': [{
         'id|+1': 1,
         name: '@cname',
+        isMale: '@boolean',
         'age|11-99': 1,
         address: '@region'
       }],

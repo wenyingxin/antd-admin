@@ -19,7 +19,7 @@ function Users({ location, dispatch, users }) {
 
    const {
     loading, dataList, total, current,
-    currentItem, modalVisible, modalType
+    currentItem, modalVisible, modalType,pagination,
     } = users;
 
   const userSearchProps = {};
@@ -29,6 +29,7 @@ function Users({ location, dispatch, users }) {
         total,
         loading,
         current,
+        pagination,
     };
   const userModalProps = {};
 

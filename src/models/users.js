@@ -13,6 +13,14 @@ export default {
     currentItem: {}, // 当前操作的用户对象
     modalVisible: false, // 弹出窗的显示状态
     modalType: 'create', // 弹出窗的类型（添加用户，编辑用户）
+    pagination:{
+      current:1,
+      pageSize: 10,
+      showSizeChanger:true,
+      pageSizeOptions:['10', '20', '30', '40'],
+      showQuickJumper:true,
+      showTotal: total => `共 ${total} 条`,
+    }
   },
   subscriptions: {
     setup({ dispatch, history }) {
