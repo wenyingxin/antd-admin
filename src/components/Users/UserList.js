@@ -40,9 +40,21 @@ const UserList = ({
     key: 'isMale',
     render:(text) => <span>{text ? '男' : '女'}</span>
   },{
+  	title:'电话',
+  	dataIndex:'phone',
+  	key:'phone',
+  },{
+  	title:'邮箱',
+  	dataIndex:'email',
+  	key:'email',
+  },{
     title: '住址',
     dataIndex: 'address',
     key: 'address',
+  },{
+    title: '创建时间',
+    dataIndex: 'createTime',
+    key: 'createTime',
   }, {
     title: '操作',
     key: 'operation',
