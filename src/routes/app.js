@@ -1,18 +1,51 @@
 
 import React, { Component, PropTypes } from 'react';
+import {
+	Spin,
+	message
+} from 'antd'
+import Error from './Error';
+import Login from './login';
+import styles from '../components/Layout/main.less'
 
 
 // 引入 connect 工具函数
 import { connect } from 'dva';
 
-function App ({children,app}){
+function App ({children,dispatch,app}){
 
 	const {
-    login,
+    	login,loading,loginButtonLoading
     } = app;
 
+    const loginProps = {
+   		loginButtonLoading,
+    	onOK(data) {
+    		//console.log(JSON.stringify(data));
+    		dispatch({type:'app/login',payload:data});
+    	}
+    }
+
 	return (
-		<div>{login?children:"not login"}
+		<div>
+			{login 
+				? <div>
+					<aside>
+						侧边栏
+					</aside>
+					<div>
+						<div>{children}</div>
+					</div>
+
+				  </div>
+				: 
+				<div className={styles.spin}>
+					<Spin tip="加载用户信息..." size='large' spinning={loading}>
+						<Login {...loginProps}/>
+					</Spin>
+				</div>
+				
+			}
 		
 		</div>
 	);
